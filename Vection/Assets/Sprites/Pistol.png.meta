@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: ac6da44e3de818d4bb1a3d1ae77379e1
+guid: 558e3734cc1307441881f627824e4f7e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Basic_Player_0
-    21300002: Basic_Player_1
+    21300000: Pistol_0
+    21300002: Pistol_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -97,41 +97,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic_Player_0
+      name: Pistol_0
       rect:
         serializedVersion: 2
-        x: 1354.0001
-        y: 731.31995
-        width: 520
-        height: 779.30505
-      alignment: 9
-      pivot: {x: 0.49807668, y: 0.49875212}
+        x: 211
+        y: 932
+        width: 1013
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f653f81a5cf4da4eb08ddde39913cc6
+      spriteID: d167b887af2068d4798c379eef8c221f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Player_1
+      name: Pistol_1
       rect:
         serializedVersion: 2
-        x: 2163
-        y: 962
-        width: 197.5
-        height: 296.875
-      alignment: 9
-      pivot: {x: 0.49873418, y: 0.4968417}
+        x: 1323
+        y: 1493
+        width: 1011
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc1e34b2231ec24c8cb3e4451d3731c
+      spriteID: c5ca92e069620c640b255e8795e3f41b
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5c3bebb48f7e9eb409179dde33aefc62
+    spriteID: 106f18e8a445a1340b336e3252d8554b
     vertices: []
     indices: 
     edges: []
@@ -147,6 +147,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: 637085326889175231
+  userData: 
   assetBundleName: 
   assetBundleVariant: 

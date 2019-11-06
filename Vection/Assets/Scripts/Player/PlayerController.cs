@@ -10,14 +10,21 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDirection = Vector3.zero;
     private CharacterController2D _characterController;
     private BoxCollider2D _collider;
-    private bool _isFacingRight;
-    private bool _isGrounded;
+    private Animator _animator;
     private bool _canJump;
 
     // Player Parameters
     [SerializeField] private float _gravity = 10.0f;
     [SerializeField] private float _runSpeed = 10.0f;
-    [SerializeField] private float _jumpHeight = 10.0f;
+    [SerializeField] private float _jumpHeight = 2.0f;
+
+    // Player State Variables
+    private bool _isFacingRight;
+    private bool _isGrounded;
+    private bool _isJumping;
+    private bool _isRunning;
+    private bool _isSlowingTime;
+
     
     // Player Abilities
     [SerializeField] private bool _canFrontFlip;
@@ -33,16 +40,27 @@ public class PlayerController : MonoBehaviour
         if(_collider == null){
             Debug.Log("Box collider is null");
         }
+        _animator = GetComponent<Animator>();
+        if(_animator == null){
+            Debug.Log("Animator is null");
+        }
     }
 
     void Update()
     {
+
+        // Slow Motion
+        if(Input.GetKeyDown(KeyCode.Mouse1)){
+            _isSlowingTime = !_isSlowingTime;
+            Time.timeScale = _isSlowingTime ? 1F : 0.3F;
+        }
 
         // Is Grounded Logic
         flags = _characterController.collisionState;
         _isGrounded = flags.below;
         if(_isGrounded){
             // Debug.Log("Is grounded");
+            _canJump = true;
             _moveDirection.y = 0;
             float horizontal = Input.GetAxis("Horizontal");
             _moveDirection.x = horizontal;
@@ -56,14 +74,26 @@ public class PlayerController : MonoBehaviour
                 _isFacingRight = false;
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
-            _characterController.move(_moveDirection * _runSpeed * Time.deltaTime);
+
+            //Jumping Logic
+            if(Input.GetButtonDown("Jump") && _canJump){
+                _canJump = false;
+                _moveDirection.y = _jumpHeight;
+            }
         }
         // In Air Logic
         else{
             // Debug.Log("not grounded");
-            _moveDirection.y = -_gravity;
-            _characterController.move(_moveDirection * Time.deltaTime);
+            _moveDirection.y -= _gravity * Time.deltaTime;
         }
+        // Move the Character
+        _characterController.move(_moveDirection * _runSpeed * Time.deltaTime);
+        Animate();
+    }
+
+    private void Animate(){
+        _animator.SetBool("isJumping", _isJumping);
+        _animator.SetFloat("speed", _moveDirection.x == 0 ? 0 : 1);
     }
 
     // IEnumerator WallJumpWaiter(){
