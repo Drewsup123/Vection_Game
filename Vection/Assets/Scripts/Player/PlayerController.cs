@@ -37,24 +37,25 @@ public class PlayerController : MonoBehaviour
         flags = _characterController.collisionState;
         _isGrounded = flags.below;
         if(_isGrounded){
-            Debug.Log("Is grounded");
+            // Debug.Log("Is grounded");
             _moveDirection.y = 0;
             float horizontal = Input.GetAxis("Horizontal");
+            _moveDirection.x = horizontal;
             // If the player is moving right
             if(horizontal > 0){
                 _isFacingRight = true;
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
             // The player is moving left
-            else{
+            else if(horizontal < 0){
                 _isFacingRight = false;
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
-            _characterController.move(_moveDirection * Time.deltaTime);
+            _characterController.move(_moveDirection * _runSpeed * Time.deltaTime);
         }
         // In Air Logic
         else{
-            Debug.Log("not grounded");
+            // Debug.Log("not grounded");
             _moveDirection.y = -_gravity;
             _characterController.move(_moveDirection * Time.deltaTime);
         }
