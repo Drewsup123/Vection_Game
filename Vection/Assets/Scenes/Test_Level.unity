@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 664520525}
   - component: {fileID: 664520524}
   - component: {fileID: 664520527}
+  - component: {fileID: 664520528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -872,7 +873,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664520523}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -947,6 +948,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &664520528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664520523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2a178c5cdd9e344bfcf0b32a73c2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 6
+  jumpSpeed: 10
+  gravity: 20
+  doubleJumpSpeed: 4
+  wallJumpAmount: 1.5
+  wallRunAmount: 2
+  slopeSlideSpeed: 4
+  glideAmount: 2
+  glideTimer: 2
+  creepSpeed: 3
+  canDoubleJump: 1
+  canWallJump: 1
+  canWallRun: 1
+  canGlide: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
+  isJumping: 0
+  isFacingRight: 0
+  wallJumped: 0
+  isWallRunning: 0
+  isSlopeSliding: 0
+  isCrouching: 0
+  isCreeping: 0
+  isGliding: 0
 --- !u!1 &981010440
 GameObject:
   m_ObjectHideFlags: 0
