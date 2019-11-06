@@ -12,11 +12,16 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D _collider;
     private bool _isFacingRight;
     private bool _isGrounded;
+    private bool _canJump;
 
     // Player Parameters
     [SerializeField] private float _gravity = 10.0f;
     [SerializeField] private float _runSpeed = 10.0f;
     [SerializeField] private float _jumpHeight = 10.0f;
+    
+    // Player Abilities
+    [SerializeField] private bool _canFrontFlip;
+    [SerializeField] private bool _canBackFlip;
 
     void Start()
     {
